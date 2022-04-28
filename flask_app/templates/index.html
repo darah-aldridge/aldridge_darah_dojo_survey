@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+    <title>Survey</title>
+</head>
+<body>
+    <div id="container">
+        <div id="form">
+            <h1>Dojo Survey</h1>
+            <form action='/submit' method='post'>
+                <label for="name" class="select">Name:</label>
+                <input type="text" name="name">
+                <label for="dojo_location" class="select">Dojo Location:</label>
+                <select class="select-dropdown" name="dojo_location">
+                    <option value="" class="select-dropdown">Please choose...</option>
+                    <option value="Online">Online</option>
+                    <option value="Bellevue, WA">Bellevue, WA</option>
+                    <option value="Boise, ID">Boise, ID</option>
+                    <option value="Chicago, IL">Chicago, IL</option>
+                    <option value="Los Angeles, CA">Los Angeles, CA</option>
+                    <option value="Silicon Valley, CA">Silicon Valley, CA</option>
+                </select>
+                <label for="favorite_language" class="select">Favorite Language:</label>
+                <select class="select-dropdown" name="favorite_language">
+                    <option value="">Please choose...</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="Python">Python</option>
+                    <option value="C#">C#</option>
+                </select>  
+                <label for="comment" class="select">Comments:</label>
+                <textarea name="comment">
+                </textarea> 
+                <input type="submit" name="submit" value="Submit" id="submit">
+            </form>
+            {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+                {% if messages %}                            <!-- check if there are any messages -->
+                    {% for message in messages %}            <!-- loop through the messages -->
+                        <p class="validation">{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+</body>
+</html>

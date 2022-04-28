@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/results-style.css') }}">
+    <title>Survey</title>
+</head>
+<body>
+    <div id="container">
+        <div id="submission">
+            <h1 id="result-name">{{dojo.name}}</h1>
+            <h2 class="result-header">Location:</h2>
+            <p class="result-text">{{dojo.location}}</p>
+            <h2 class="result-header">Favorite Language:</h2>
+            <p class="result-text">{{dojo.language}}</p>
+            <h2 class="result-header">Comments:</h2>
+            <p class="result-text">{{dojo.comment}}</p>
+            <a href="/go-back">Go Back</a>
+        </div>
+    </div>
+</body>
+</html>
